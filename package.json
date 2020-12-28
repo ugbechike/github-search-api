@@ -2,7 +2,7 @@
   "name": "github-search-api",
   "version": "1.0.0",
   "description": "code challenge to search users and repos with github api",
-  "repository": "localhost:3036",
+  "repository": "https://github.com/ugbechike/github-search-api",
   "author": "John",
   "license": "MIT",
   "engines": {

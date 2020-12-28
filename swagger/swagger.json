@@ -38,7 +38,7 @@
                     "has_more": {
                       "type": "boolean"
                     },
-                    "items": {
+                    "data": {
                       "type": "array",
                       "items": {
                         "$ref": "#/components/schemas/GithubUsers"
@@ -77,7 +77,41 @@
                         "gists_url": "https://api.github.com/users/mojombo/gists{/gist_id}",
                         "starred_url": "https://api.github.com/users/mojombo/starred{/owner}{/repo}",
                         "events_url": "https://api.github.com/users/mojombo/events{/privacy}",
-                        "site_admin": true
+                        "site_admin": true,
+                        "profile": {
+                          "login": "ugbechike",
+                          "id": 29172958,
+                          "node_id": "MDQ6VXNlcjI5MTcyOTU4",
+                          "avatar_url": "https://avatars1.githubusercontent.com/u/29172958?v=4",
+                          "gravatar_id": "",
+                          "url": "https://api.github.com/users/ugbechike",
+                          "html_url": "https://github.com/ugbechike",
+                          "followers_url": "https://api.github.com/users/ugbechike/followers",
+                          "following_url": "https://api.github.com/users/ugbechike/following{/other_user}",
+                          "gists_url": "https://api.github.com/users/ugbechike/gists{/gist_id}",
+                          "starred_url": "https://api.github.com/users/ugbechike/starred{/owner}{/repo}",
+                          "subscriptions_url": "https://api.github.com/users/ugbechike/subscriptions",
+                          "organizations_url": "https://api.github.com/users/ugbechike/orgs",
+                          "repos_url": "https://api.github.com/users/ugbechike/repos",
+                          "events_url": "https://api.github.com/users/ugbechike/events{/privacy}",
+                          "received_events_url": "https://api.github.com/users/ugbechike/received_events",
+                          "type": "User",
+                          "site_admin": false,
+                          "name": "Ugbechike",
+                          "company": "Mart.sa",
+                          "blog": "",
+                          "location": "Dubai",
+                          "email": null,
+                          "hireable": null,
+                          "bio": "Software Developer, Building awesome applications with Javascript library React and React-Native",
+                          "twitter_username": null,
+                          "public_repos": 55,
+                          "public_gists": 0,
+                          "followers": 12,
+                          "following": 12,
+                          "created_at": "2017-06-04T07:46:57Z",
+                          "updated_at": "2020-12-28T14:40:59Z"
+                        }
                       }
                     ],
                     "search_text": "ugbechike",
@@ -242,6 +276,113 @@
             "type": "string"
           },
           "site_admin": {
+            "type": "string"
+          },
+          "profile": {
+            "$ref": "#/components/schemas/Profile"
+          }
+        }
+      },
+      "Profile": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "avatar_url": {
+            "type": "string"
+          },
+          "gravatar_id": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "html_url": {
+            "type": "string"
+          },
+          "followers_url": {
+            "type": "string"
+          },
+          "subscriptions_url": {
+            "type": "string"
+          },
+          "organizations_url": {
+            "type": "string"
+          },
+          "repos_url": {
+            "type": "string"
+          },
+          "received_events_url": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "score": {
+            "type": "number"
+          },
+          "following_url": {
+            "type": "string"
+          },
+          "gists_url": {
+            "type": "string"
+          },
+          "starred_url": {
+            "type": "string"
+          },
+          "events_url": {
+            "type": "string"
+          },
+          "site_admin": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "company": {
+            "type": "string"
+          },
+          "blog": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "hireable": {
+            "type": "string"
+          },
+          "bio": {
+            "type": "string"
+          },
+          "twitter_username": {
+            "type": "string"
+          },
+          "public_repos": {
+            "type": "string"
+          },
+          "public_gists": {
+            "type": "string"
+          },
+          "followers": {
+            "type": "string"
+          },
+          "following": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
             "type": "string"
           }
         }
