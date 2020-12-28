@@ -16,7 +16,7 @@
     "test": "NODE_ENV=test jest --runInBand --forceExit",
     "lint": "yarn lint:ts && yarn lint:swagger",
     "lint:swagger": "spectral -r ./.spectral.json lint swagger/*.json",
-    "api-flow": "ts-node __api_flows__/api-flow.ts"
+    "api-flow": "ts-node __api_flow__/api-flow.ts"
   },
   "files": [
     "src"
