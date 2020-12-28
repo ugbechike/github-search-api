@@ -13,8 +13,10 @@
     "dev": "nodemon",
     "prettier": "prettier --write \"src/**/*.{ts,json}\" \"__tests__/**/*.{ts,json}\" \"__api_flows__/**/*.ts\" \"swagger/**/*.json\"",
     "build": "tsc --skipLibCheck",
+    "test": "NODE_ENV=test jest --runInBand --forceExit",
     "lint": "yarn lint:ts && yarn lint:swagger",
-    "lint:swagger": "spectral -r ./.spectral.json lint swagger/*.json"
+    "lint:swagger": "spectral -r ./.spectral.json lint swagger/*.json",
+    "api-flow": "ts-node __api_flows__/api-flow.ts"
   },
   "files": [
     "src"
@@ -44,6 +46,7 @@
     "@types/express": "4.17.9",
     "@types/ioredis": "^4.17.10",
     "@types/jest": "26.0.15",
+    "@types/supertest": "2.0.10",
     "@types/morgan": "1.9.2",
     "@types/nodemon": "1.19.0",
     "@types/prettier": "2.1.5",

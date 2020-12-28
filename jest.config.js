@@ -11,5 +11,5 @@ module.exports = {
   collectCoverage: false,
   coverageReporters: ['json', 'html'],
   modulePathIgnorePatterns: ['<rootDir>/prod_node_modules'],
-  setupFilesAfterEnv: ['<rootDir>/__tests__/cleanup.ts'],
+  setupFilesAfterEnv: ['<rootDir>/__tests__/clean-up.ts'],
 };
