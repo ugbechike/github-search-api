@@ -3,31 +3,15 @@ import {IAppResponse} from "../../types/app-response";
 import {BaseValidationType} from "../../types/base-validator";
 import {body} from "express-validator";
 import {reqValidationResult} from "../../config/mw/req-validator-mw";
-import {GithubApiResponse, GithubSearchTypesEnum} from "../../types/github-types/search-api-response";
+import {Data, GithubApiResponse, GithubSearchEntityTypesEnum, Item} from "../../types/github-types/search-api-response";
 import {Octokit} from '@octokit/rest';
 import axios from "axios";
 import {redis} from "../../config/redis";
 
-// todo move to a business types or services
-export interface ServiceSearchGithubApiProps {
-  search_type: GithubSearchTypesEnum;
-  search_text: string;
-  size: number;
-  page: number;
-}
-
-export interface ServiceGithubApiResponse extends GithubApiResponse {
-  search_type: GithubSearchTypesEnum;
-  search_text: string;
-  size: number;
-  page: number;
-  // data: any[]; // todo type this john
-}
-
 
 interface IReq extends IAppRequest {
   body: {
-    search_type: GithubSearchTypesEnum;
+    search_type: GithubSearchEntityTypesEnum;
     search_text: string;
     size?: number;
     page?: number;
@@ -35,13 +19,13 @@ interface IReq extends IAppRequest {
 }
 
 export interface IRes extends IAppResponse {
-  json: (body: ServiceGithubApiResponse) => this;
+  json: (body: GithubApiResponse) => this;
 }
 
 
 export const actionSearchGithubValidator: BaseValidationType = [body('search_text').exists(), body('size').optional().isNumeric(), body('page').optional().isNumeric(), reqValidationResult];
 export async function githubSearchAction(req: IReq, res: IRes): Promise<IAppResponse> {
-  const {search_text, search_type = GithubSearchTypesEnum.users, page = 1, size = 20 } = req.body;
+  const {search_text, search_type = GithubSearchEntityTypesEnum.users, page = 1, size = 20 } = req.body;
   const octokit = new Octokit();
 
   let resp: any;
@@ -60,11 +44,11 @@ export async function githubSearchAction(req: IReq, res: IRes): Promise<IAppResp
   // check if has more data for pagination in front-end
   const has_more_data: boolean = resp?.data && resp?.data.length > size - 1;
 
-  const data: any = resp.data;
+  const data: Data = resp.data;
 
   // check if search-type is user
   // then get the user profile from the url
-  if (search_type === GithubSearchTypesEnum.users) {
+  if (search_type === GithubSearchEntityTypesEnum.users) {
     try {
       const userProfiles = await Promise.all(
         data.items.map(async (item: any) => {
