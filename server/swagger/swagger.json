@@ -330,12 +330,57 @@
           "site_admin": {
             "type": "string"
           },
-          "profile": {
-            "$ref": "#/components/schemas/Profile"
+          "owner": {
+            "$ref": "#/components/schemas/owner"
+          },
+          "site_admin":{
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string"
+          },
+          "company": {
+            "type": "string"
+          },
+          "blog": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "email": {
+            "type": "object"
+          },
+          "hireable": {
+            "type": "object"
+          },
+          "bio": {
+            "type": "string"
+          },
+          "twitter_username": {
+            "type": "object"
+          },
+          "public_repos": {
+            "type": "number"
+          },
+          "public_gists": {
+            "type": "number"
+          },
+          "followers": {
+            "type": "number"
+          },
+          "following": {
+            "type": "number"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
           }
         }
       },
-      "Profile": {
+      "owner": {
         "type": "object",
         "properties": {
           "login": {

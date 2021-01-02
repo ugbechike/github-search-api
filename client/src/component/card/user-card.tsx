@@ -21,61 +21,62 @@ export const UserCard = () => {
   return (
     <BaseSimpleGrid>
       {data?.map((item: ItemElement, index: number) => {
-        const { profile, html_url } = item || {};
+        const { owner, html_url } = item || {};
+        const {public_repos, followers, avatar_url, name, login, location, company, bio, following} = owner;
         return (
           <Card key={index}>
             <a href={html_url} target='_blank' rel='noreferrer'>
             <Box className={"user-card-flex"}>
               <img
-                src={profile?.avatar_url}
+                src={avatar_url}
                 style={{ height: 50, width: 50, borderRadius: 25 }}
                 alt={"profile_pix"}
               />
               <Box className={"user-card-content-wrapper"}>
-                {profile?.name !== null && (
-                  <Text className={"user-card-name"}>{profile?.name}</Text>
+                {name !== null && (
+                  <Text className={"user-card-name"}>{name}</Text>
                 )}
-                <Text className={"user-card-login"}>{profile?.login}</Text>
+                <Text className={"user-card-login"}>{login}</Text>
               </Box>
             </Box>
             <Box className={"details-section"}>
               <Box className={"user-card-company-wrapper"}>
                 <HiOutlineLocationMarker size={14} color={"red"} />
                 <Text className={"user-card-company"}>
-                  {profile?.location ? profile?.location : "N/A"}
+                  {location ? location : "N/A"}
                 </Text>
               </Box>
 
               <Box className={"user-card-company-wrapper"}>
                 <HiOutlineOfficeBuilding size={14} color={"#4A5568"} />
                 <Text className={"user-card-company"}>
-                  {profile.company ? profile.company : "N/A"}
+                  {company ? company : "N/A"}
                 </Text>
               </Box>
             </Box>
 
             <Box className={"user-card-details-wrapper"}>
-              <Text className={"user-card-bio"}>{profile.bio}</Text>
+              <Text className={"user-card-bio"}>{bio}</Text>
             </Box>
             <Box className={"user-card-footer"}>
               <Box className={"user-card-flex"}>
                 <FiUsers size={14} color={"#4A5568"} />
                 <Text className={"user-card-following-number"}>
-                  {profile.following}
+                  {following}
                 </Text>
                 <Text className={"user-card-following-text"}>following</Text>
               </Box>
               <Box className={"user-card-flex"}>
                 <AiOutlineUsergroupAdd size={14} color={"#4A5568"} />
                 <Text className={"user-card-following-number"}>
-                  {profile.followers}
+                  {followers}
                 </Text>
                 <Text className={"user-card-following-text"}>followers</Text>
               </Box>
               <Box className={"user-card-flex"}>
                 <GoRepo size={14} color={"#4A5568"} />
                 <Text className={"user-card-following-number"}>
-                  {profile.public_repos}{" "}
+                  {public_repos}{" "}
                 </Text>
                 <Text className={"user-card-following-text"}>repos</Text>
               </Box>

@@ -19,8 +19,8 @@ export async function actionClearCache(req: IAppRequest, res: IRes): Promise<IRe
   /**
    * {Using pipeline instead of sending one command each time, to improve the performance on large scale}
    *
-   * when database has a large set of keys (say a million),
-   * keys will block the database for several seconds. In that case, scan is more useful.
+   * when database has a large set of keys,
+   * keys command will block the database for several seconds. In that case, scan is more useful.
    * ioredis has scanStream feature to help you iterate over the database easily:
    */
   const stream: Readable = redis.scanStream({

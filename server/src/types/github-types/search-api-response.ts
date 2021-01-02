@@ -5,10 +5,6 @@ export enum GithubSearchEntityTypesEnum {
   'repositories' = 'repositories',
 }
 
-// export interface searchResultType {
-//   item: GithubApiResponse
-// }
-
 export interface GithubApiResponse {
   data: Data;
   size: number;
@@ -46,10 +42,31 @@ export interface Item {
   type: string;
   site_admin: boolean;
   score: number;
-  profile: Profile;
+  owner: Owner;
+  homepage?: null;
+  size?: number;
+  stargazers_count?: number;
+  watchers_count?: number;
+  language?: null;
+  has_issues?: boolean;
+  has_projects?: boolean;
+  has_downloads?: boolean;
+  has_wiki?: boolean;
+  has_pages?: boolean;
+  forks_count?: number;
+  mirror_url?: null;
+  archived?: boolean;
+  disabled?: boolean;
+  open_issues_count?: number;
+  license?: null;
+  forks?: number;
+  open_issues?: number;
+  watchers?: number;
+  default_branch?: string;
+  permissions?: Permissions;
 }
 
-export interface Profile {
+export interface Owner {
   login: string;
   id: number;
   node_id: string;
@@ -82,4 +99,10 @@ export interface Profile {
   following: number;
   created_at: Date;
   updated_at: Date;
+}
+
+export interface Permissions {
+  admin?: boolean;
+  push?: boolean;
+  pull?: boolean;
 }

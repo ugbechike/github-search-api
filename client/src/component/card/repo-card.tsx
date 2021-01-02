@@ -9,15 +9,8 @@ import { Text } from "../base/text";
 import { Box } from "../base/box";
 import "./card-styles.css";
 import moment from "moment";
-
-export const colors: Record<string, string> = {
-  javascript: '#F1E05A',
-  typescript: '#2B7489',
-  css: '#563D7C',
-  'c#': '#1A8604',
-  html: '#E34D25',
-};
-// todo move to helper fn
+import { ItemElement } from "../../utils/types";
+import { colors } from "../../utils/color-utils";
 
 export const RepoCard = () => {
   const { searchResult } = useSelector((state: RootState) => state.search);
@@ -25,8 +18,7 @@ export const RepoCard = () => {
 
   return (
     <BaseSimpleGrid>
-      {data?.map((item: any, index: number) => {
-        // todo fix this type overlap
+      {data?.map((item: ItemElement, index: number) => {
         const {
           description,
           name,
@@ -40,7 +32,9 @@ export const RepoCard = () => {
         } = item;
 
         const updatedAt = moment(updated_at).fromNow();
-        const bg  =  colors[language?.toLowerCase()]? colors[language?.toLowerCase()] : 'red'
+        const bg = colors[language?.toLowerCase()]
+          ? colors[language?.toLowerCase()]
+          : "red";
 
         return (
           <Card key={index}>
