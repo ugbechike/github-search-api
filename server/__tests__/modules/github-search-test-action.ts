@@ -26,7 +26,7 @@ export const GithubSearchTestAction = () => {
   it('should search repository with search_type repositories', async () => {
     const response: any = await httpPost(githubSearchUrl, {
       search_text: 'github-search',
-      search_type: 'repositories',
+      search_type: 'repos',
     });
     expect(response.status).toEqual(200);
     expect(response.body.data).toBeDefined();
